@@ -1,0 +1,379 @@
+<!--Professor, usei o seu codigo do projeto Flag como base. 
+  Em alguns momentos copiei e colei para não precisar refazer com um ou dois detalhes diferentes.-->
+
+<!DOCTYPE html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Qual é o cantor?</title>
+    <meta name="description" content="" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="apple-touch-icon" href="icon.png" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" type="text/css" href="font/material-icons.css" />
+  </head>
+  <body>
+    <section class="inicio">
+      <h1>Qual é o cantor?</h1>
+      <button class="mticons">play_arrow</button>
+    </section>
+
+<!-- Orientações -->
+
+    <section class="ordem">
+      <h1>Orientações:</h1>
+      <div class="f1">
+        <p>• Serão tocadas 2 (duas) musicas ao mesmo tempo durante a fase 1 (um);</p>
+        <br>
+        <p>• Você devera marcar os cantores correspondentes;</p>
+      </div>
+      <div class="f2">
+        <p>• Serão tocadas 3 (três) musicas ao mesmo tempo durante a fase 2 (dois);</p>
+        <br>
+        <p>• Você devera marcar os cantores correspondentes;</p>
+      </div>
+      <div class="f3">
+        <p>• Você podera errar 2 (duas) vezes em ambas as fases;</p>
+        <br>
+        <p>• Você tera 50 (cinquenta) segundos para completar ambas as fases;</p>
+      </div>
+      <button class="mticons">play_arrow</button>
+    </section>
+      
+
+<!-- Fase 1 -->
+
+      <section class="fase1" id="pg1">
+
+        <header>
+          <p>
+            <span class="mticons">star</span>
+            ACERTOS: <span class="acertos">0</span>
+          </p>
+          <p>
+            <span class="mticons">alarm</span>
+            00: <span class="tempo">00</span>
+          </p>
+        </header>
+
+          <ul>        
+            <div class="contorno" id="errado1">
+            <li>
+              <div class="desc">
+                <img src="img/daddy.jpg" />
+                <p>Daddy</p>  
+              </div>
+
+            </li>
+            </div>
+            <div class="contorno" id="certo1">
+            <li>
+              <div class="desc">
+                <img src="img/doka.jpeg" />
+                <p>Sidoka</p>
+              </div>
+            </li>
+            </div>
+            <div class="contorno" id="certo1">
+            <li>
+              <div class="desc">
+                <img src="img/krawk.jpg" />
+                <p>Krawk</p>
+              </div>
+            </li>
+            </div>
+            <div class="contorno" id="errado1">
+            <li>
+              <div class="desc">
+                <img src="img/matue.jpg" />
+                <p>Matuê</p>
+              </div>
+            </div>
+            </li>        
+            </div>
+          </ul>
+      </section>
+
+<!-- Fase 2 -->
+
+      <section class="fase2" id="pg2">
+
+        <header>
+          <p>
+            <span class="mticons">star</span>
+            ACERTOS: <span class="acertos2">0</span>
+          </p>
+          <p>
+            <span class="mticons">alarm</span>
+            00: <span class="tempo2">00</span>
+          </p>
+        </header>
+
+        <ul>        
+          <div class="contorno" id="certo2">
+          <li>
+            <div class="desc">
+              <img src="img/xama.jpg" />
+              <p>Xamã</p>  
+            </div>
+
+          </li>
+          </div>
+          <div class="contorno" id="certo2">
+          <li>
+            <div class="desc">
+              <img src="img/misael.jpg" />
+              <p>Misael</p>
+            </div>
+          </li>
+          </div>
+          <div class="contorno" id="certo2">
+          <li>
+            <div class="desc">
+              <img src="img/froid.jpg" />
+              <p>Froid</p>
+            </div>
+          </li>
+          </div>
+          <div class="contorno" id="errado2">
+          <li>
+            <div class="desc">
+              <img src="img/konai.jpg" />
+              <p>Konai</p>
+            </div>
+          </div>
+          </li>        
+          </div>
+        </ul>
+    </section>
+    </section>
+
+<!-- Final -->
+
+    <section class="ganhou">
+      <h1>Parabens, você ganhou!</h1>
+      <br>
+      <h2>Confira seu desempenho:</h2>
+      <p>Tempo Total: <span class="tt1"></span></p>
+      <p>Erros: <span class="et"></span></p>
+      <button class="mticons">home</button>
+    </section>
+
+    <section class="perdeu">
+      <h1>Que pena, não foi dessa vez!</h1>
+      <br>
+      <h2>Confira seu desempenho:</h2>
+      <p>Tempo Total: <span class="tt2"></span></p>
+      <p>Erros: <span class="at"></span></p>
+      <button class="mticons">home</button>
+    </section>
+  </body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript">
+    
+    $(".tp2").text("0" + " seg");
+
+      var musica = new Audio("musicas/Sidoka.mp3");
+      var musica2 = new Audio("musicas/Krawk.mp3")
+      var musica3 = new Audio("musicas/Misael.mp3");
+      var musica4 = new Audio("musicas/Xama.mp3");
+      var musica5 = new Audio("musicas/Daddy.mp3");
+      var win= new Audio("musica/win.wav");
+
+
+      var tempo1 = 0;
+      var tempo2 = 0;
+      
+      $("section.inicio button").on("click", function () { 
+
+        // Transição de Tela //
+        $("section").hide();
+        $("section.ordem").show();
+      })
+
+      $("section.ordem button").on("click", function () { 
+
+        musica.play()
+        musica2.play()
+        musica.volume = 0.5;
+        musica2.volume = 0.5;
+        // Transição de Tela //
+        $("section").hide();
+        $("section.fase1").show();
+
+        setInterval(function (id) {
+          if(document.getElementById("pg1").style.display == "none"){
+            var tempo = parseInt($("span.tempo").text());
+            var soma = tempo;
+          } else {
+            var tempo = parseInt($("span.tempo").text());
+            var soma = tempo + 1;
+            if (soma < 10) {
+            soma = "0" + soma;
+          }
+          }
+          if (soma == 50) {
+            var tempo = parseInt($("span.tempo").text());
+            tempo1 = tempo;
+            $("section").hide();
+            $("section.perdeu").show();
+          }
+          $("span.tempo").text(soma);
+        }, 1000);
+        }) 
+
+      $("section.fase1 #certo1").one("click", function () {
+        var acertos = parseInt($("span.acertos").text());
+        var soma = acertos + 1;
+
+        $("span.acertos").text(soma);
+        $(this).css({ opacity: 0.5 });
+        if (soma == 2) {
+          var tempo = parseInt($("span.tempo").text());
+          tempo1 = tempo;
+
+          $("section").hide();
+          $("section.fase2").show();
+          musica.pause()
+          musica2.pause()
+          
+          musica3.play()
+          musica4.play()
+          musica5.play()
+
+          musica4.volume = 0.5
+          musica5.volume = 0.5
+          musica6.volume = 0.5
+        }
+      });
+      setInterval(function (id) {
+          if(document.getElementById("pg2").style.display == "none"){
+            var tempo2 = parseInt($(".fase2 span.tempo2").text());
+            var soma2 = tempo2;
+          } else {
+            var tempo2 = parseInt($(".fase2 span.tempo2").text());
+            var soma2 = tempo2 + 1;
+            if (soma2 < 10) {
+            soma2 = "0" + soma2;
+          }
+          }
+          if (soma2 == 50) {
+
+            $("section").hide();
+            $("section.perdeu").show();
+            var tempo2 = parseInt($(".fase2 span.tempo2").text());
+            tempo2 = tempo;
+
+            var tempT = tempo1 + tempo2;
+
+            $("section.perdeu.tt2").text(tempT + " seg")   
+
+          et = erros + erross
+
+          $("section.perdeu .at").text(et)  
+            
+          }
+          $(".fase2 span.tempo2").text(soma2);
+        }, 1000);
+
+      $("section.fase2 #certo2").one("click", function () {
+        var acertos = parseInt($("span.acertos2").text());
+        var soma = acertos + 1;
+
+        $("span.acertos2").text(soma);
+        $(this).css({ opacity: 0.5 });
+
+        if (soma == 3) {
+          var tempo = parseInt($("span.tempo").text());
+          tempo2 = tempo;
+
+          var tempT = tempo1 + tempo2;
+
+        $("section.ganhou .tt1").text(tempT + " seg")   
+
+          et = erros + erross
+
+          $("section.ganhou .et").text(et)
+
+          musica3.pause();
+          musica4.pause();
+          musica5.pause();
+          win.play();
+
+          $("section").hide();
+          $(".ganhou").show();
+        }
+      });
+
+      var erros = 0;
+      $("section.fase1 #errado1").on("click", function () {
+        erros++;
+        $(this).css({ opacity: 0.5 });
+        if (erros > 1) {
+          var tempo = parseInt($("span.tempo").text());
+          tempo1 = tempo;
+              
+          musica.pause();
+          musica2.pause();
+
+          var tempT = tempo1 + tempo2;
+
+          $("section.perdeu .tt2").text(tempT + " seg")
+
+          et = erros + erross
+
+          $("section.perdeu .at").text(et)
+          
+          $("section").hide();
+          $("section.perdeu").show();
+        }
+      });
+      var erross = 0
+      var et = 0
+      $("section.pag2 #errado2").on("click", function () {
+        erross++;
+        $(this).css({ opacity: 0.5 });
+        
+        if (erross == 1) {
+          var tempoo = parseInt($("span.tempo2").text());
+          tempo2 = tempoo;
+
+          var tempT = tempo1 + tempo2;
+
+          $("section.perdeu .tt2").text(tempT + " seg")
+
+          et = erros + erross
+
+          $("section.perdeu .at").text(et)
+              
+          musica3.pause();
+          musica4.pause();
+          musica5.pause();
+          $("section").hide();
+          $("section.perdeu").show();
+        }
+      });
+      
+      $("section.ganhou button").on("click", function(){
+        $("section").hide();
+        $(".inicio").show();
+      });
+
+      $("section.perdeu button").on("click", function(){
+        $("section").hide()
+        $(".inicio").show()
+      });
+
+
+
+    </script>
+    <script src="js/plugins.js"></script>
+    <script src="js/main.js"></script>
+</html>
